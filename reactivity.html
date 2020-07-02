@@ -1,0 +1,21 @@
+<script src="./scripts/reactivity/dep.js"></script>
+<script src="./scripts/reactivity/v3.js"></script>
+<script>
+  const state = reactive({
+    a: 1,
+    b: 2
+  })
+
+  watchEffect(() => {
+    console.log('a changed', state.a)
+  })
+  watchEffect(() => {
+    console.log('b changed', state.b)
+  })
+  watchEffect(() => {
+    console.log('a or b changed', state.a + state.b)
+  })
+  watchEffect(() => {
+    console.log('c changed', state.c)
+  })
+</script>

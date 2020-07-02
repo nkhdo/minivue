@@ -1,0 +1,11 @@
+<script src="./scripts/reactivity/dep.js"></script>
+<script>
+const dep = new Dep()
+watchEffect(() => {
+  dep.depend()
+  console.log('effect run')
+})
+dep.notify()
+dep.notify()
+dep.notify()
+</script>
