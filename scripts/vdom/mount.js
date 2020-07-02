@@ -8,7 +8,11 @@ function mount(vnode, container) {
   if (props) {
     for (let key in props) {
       const value = props[key]
-      el.setAttribute(key, value)
+      if (key.startsWith('on')) {
+        el.addEventListener(key.slice(2).toLowerCase(), value)
+      } else {
+        el.setAttribute(key, value)
+      }
     }
   }
 
