@@ -1,0 +1,26 @@
+<link rel="stylesheet" href="./styles/styles.css">
+<script src="./scripts/vdom/h.js"></script>
+<script src="./scripts/vdom/mount.js"></script>
+<script src="./scripts/vdom/patch.js"></script>
+<script src="./scripts/reactivity/dep.js"></script>
+<script src="./scripts/reactivity/v2.js"></script>
+<script src="./scripts/mountApp.js"></script>
+
+<div id="app"></div>
+
+<script>
+  const App = {
+    data: reactive({
+      count: 0
+    }),
+    render () {
+      const count = this.data.count
+      return h('div', {
+        class: count > 2 ? 'green' : 'red',
+        onClick: () => this.data.count++
+      }, count.toString())
+    }
+  }
+
+  mountApp(App, document.getElementById('app'))
+</script>

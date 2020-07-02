@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="./styles/styles.css">
+<script src="./scripts/vdom/h.js"></script>
+<script src="./scripts/vdom/mount.js"></script>
+<script src="./scripts/vdom/patch.js"></script>
+
+<div id="app"></div>
+
+<script>
+  const vdom = h('div', { id: 'test'}, [
+    h('div', { class: 'green' }, 'green text'),
+    h('div', { class: 'red' }, 'red text'),
+    h('div', null, 'normal text')
+  ])
+  mount(vdom, document.getElementById('app'))
+
+  const vdom2 = h('div', { id: 'test2' }, [
+    h('div', { class: 'green' }, 'green text updated'),
+    h('div', { class: 'blue' }, 'blue text'),
+  ])
+  patch(vdom2, vdom)
+</script>
